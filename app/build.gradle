@@ -9,6 +9,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY_MOVIE", "\"${API_KEY_MOVIE}\""
+        buildConfigField "String", "API_KEY_YOUTUBE", "\"${API_KEY_YOUTUBE}\""
     }
     buildTypes {
         release {
@@ -19,9 +21,7 @@ android {
     dataBinding {
         enabled = true
     }
-    buildTypes.each {
-        it.buildConfigField 'String', 'THE_MOVIE_API_KEY', TheMovieApiKey
-    }
+
     buildToolsVersion '26.0.2'
     compileOptions {
         targetCompatibility 1.8
@@ -30,7 +30,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
