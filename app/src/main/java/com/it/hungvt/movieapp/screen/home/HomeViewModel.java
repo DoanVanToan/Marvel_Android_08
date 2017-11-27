@@ -78,6 +78,7 @@ public class HomeViewModel extends BaseObservable
 
             case R.id.nav_setting:
                 // TODO
+
                 break;
         }
         return true;

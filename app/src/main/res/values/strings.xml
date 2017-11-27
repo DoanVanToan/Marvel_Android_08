@@ -8,5 +8,10 @@
     <string name="title_nav_other">Other</string>
     <string name="title_nav_about">About</string>
     <string name="title_nav_setting">Setting</string>
+    <string name="title_tab_top_rate">Top Rate</string>
+    <string name="title_tab_top_up_coming">Up Coming</string>
+    <string name="title_tab_popular">Popular</string>
+    <string name="title_tab_now_playing">Now Playing</string>
+
 
 </resources>
