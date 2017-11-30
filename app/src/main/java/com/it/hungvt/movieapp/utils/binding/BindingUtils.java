@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
+/* Define methods to binding data */
 
 public class BindingUtils {
 
@@ -18,7 +19,6 @@ public class BindingUtils {
             drawerLayout.closeDrawers();
         }
     }
-
 
     @BindingAdapter({ "viewPager" })
     public static void setViewPagerTabs(TabLayout view, ViewPager pagerView) {
