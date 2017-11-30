@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.it.hungvt.movieapp.BR;
 import com.it.hungvt.movieapp.BaseRecyclerViewAdapter;
 import com.it.hungvt.movieapp.data.model.Movie;
+import com.it.hungvt.movieapp.screen.detail.DetailActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,8 +87,7 @@ public class MovieViewModel extends BaseObservable implements MovieContract.View
 
     @Override
     public void onItemRecyclerViewClick(Movie movie) {
-
-        // TODO
+        mContext.startActivity(DetailActivity.getIntent(mContext, movie));
     }
 
     private void loadingMore() {

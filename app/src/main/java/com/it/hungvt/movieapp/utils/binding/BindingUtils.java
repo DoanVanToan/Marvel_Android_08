@@ -9,7 +9,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.widget.ImageView;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+import com.it.hungvt.movieapp.BuildConfig;
 import com.it.hungvt.movieapp.utils.Constant;
 import com.it.hungvt.movieapp.utils.LayoutManagerUtils;
 /* Define methods to binding data */
@@ -26,7 +31,7 @@ public class BindingUtils {
         }
     }
 
-    @BindingAdapter({"viewPager"})
+    @BindingAdapter({ "viewPager" })
     public static void setViewPagerTabs(TabLayout view, ViewPager pagerView) {
         view.setupWithViewPager(pagerView);
     }
@@ -42,6 +47,7 @@ public class BindingUtils {
         String imageUrl = Constant.BASE_POSTER_PATH + url;
         Glide.with(imageView.getContext()).load(imageUrl).into(imageView);
     }
+
     @BindingAdapter("pagerAdapter")
     public static void setPagerAdapter(ViewPager viewPager, FragmentPagerAdapter pagerAdapter) {
         viewPager.setAdapter(pagerAdapter);
@@ -64,5 +70,33 @@ public class BindingUtils {
             RecyclerView.OnScrollListener scrollListener) {
 
         recyclerView.addOnScrollListener(scrollListener);
+    }
+
+    @BindingAdapter("keyVideoTrailer")
+    public static void setKeyVideoTrailer(YouTubePlayerView youTubePlayerView,
+            String keyVideoTrailer) {
+
+        if (keyVideoTrailer == null) {
+            return;
+        }
+
+        youTubePlayerView.initialize(BuildConfig.API_KEY_YOUTUBE,
+                new YouTubePlayer.OnInitializedListener() {
+                    @Override
+                    public void onInitializationSuccess(YouTubePlayer.Provider provider,
+                            YouTubePlayer youTubePlayer, boolean b) {
+
+                        if (!b) {
+                            youTubePlayer.cueVideo(keyVideoTrailer);
+                        }
+                    }
+
+                    @Override
+                    public void onInitializationFailure(YouTubePlayer.Provider provider,
+                            YouTubeInitializationResult youTubeInitializationResult) {
+                        Toast.makeText(youTubePlayerView.getContext(),
+                                youTubeInitializationResult.toString(), Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }
