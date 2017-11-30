@@ -9,11 +9,14 @@ import static com.it.hungvt.movieapp.utils.TabTypeName.POPULAR;
 import static com.it.hungvt.movieapp.utils.TabTypeName.TOP_RATE;
 import static com.it.hungvt.movieapp.utils.TabTypeName.UP_COMING;
 
+/**
+ * Tab title type name
+ */
 @Retention(RetentionPolicy.SOURCE)
-@IntDef({TOP_RATE,UP_COMING,NOW_PLAYING,POPULAR})
-public @interface TabTypeName{
-    public static final int TOP_RATE = 0;
-    public static final int UP_COMING = 1;
-    public static final int NOW_PLAYING = 2;
-    public static final int POPULAR = 3;
+@IntDef({ TOP_RATE, UP_COMING, NOW_PLAYING, POPULAR })
+public @interface TabTypeName {
+    int TOP_RATE = 0;
+    int UP_COMING = 1;
+    int NOW_PLAYING = 2;
+    int POPULAR = 3;
 }

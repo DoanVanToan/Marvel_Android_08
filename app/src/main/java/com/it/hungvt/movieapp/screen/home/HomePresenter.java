@@ -1,5 +1,7 @@
 package com.it.hungvt.movieapp.screen.home;
 
+import com.it.hungvt.movieapp.data.source.MovieRepository;
+
 /**
  * Listens to user actions from the UI ({@link HomeActivity}), retrieves the data and updates
  * the UI as required.
@@ -7,10 +9,12 @@ package com.it.hungvt.movieapp.screen.home;
 public class HomePresenter implements HomeContract.Presenter {
     private static final String TAG = HomePresenter.class.getName();
 
-    private final HomeContract.ViewModel mViewModel;
+    private HomeContract.ViewModel mViewModel;
+    private MovieRepository mMovieRepository;
 
-    public HomePresenter(HomeContract.ViewModel viewModel) {
+    public HomePresenter(HomeContract.ViewModel viewModel, MovieRepository movieRepository) {
         mViewModel = viewModel;
+        mMovieRepository = movieRepository;
     }
 
     @Override

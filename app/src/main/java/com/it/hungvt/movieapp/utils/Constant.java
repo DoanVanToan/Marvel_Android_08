@@ -2,10 +2,6 @@ package com.it.hungvt.movieapp.utils;
 
 /* Define constants variable */
 
-import android.support.annotation.IntDef;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
 public class Constant {
 
     public static final String END_POINT_URL = "http://api.themoviedb.org/3/";
