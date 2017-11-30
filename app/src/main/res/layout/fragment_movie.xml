@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.it.hungvt.movieapp.screen.movie.MovieViewModel"
+            />
+
+        <import
+            type="com.it.hungvt.movieapp.utils.LayoutManagerUtils"/>
+        <import type="com.it.hungvt.movieapp.utils.Constant"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.it.hungvt.movieapp.screen.movie.MovieActivity"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layoutManager="@{LayoutManagerUtils.gridLayout(Constant.GRID_COLUMN)}"
+            recyclerAdapter="@{viewModel.adapter}"
+            scrollListener="@{viewModel.scrollListener}"
+            />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.loadingMore?View.VISIBLE:View.GONE}"
+            style="?android:attr/progressBarStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+    </android.support.constraint.ConstraintLayout>
+</layout>

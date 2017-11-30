@@ -1,9 +1,11 @@
 package com.it.hungvt.movieapp.screen.home;
 
+import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.MenuItem;
 import com.it.hungvt.movieapp.BR;
@@ -18,11 +20,13 @@ public class HomeViewModel extends BaseObservable
 
     private HomeContract.Presenter mPresenter;
     private int mGravity;
+    private HomePagerAdapter mPagerAdapter;
+    private Context mContext;
 
-
-
-    public HomeViewModel() {
+    public HomeViewModel(Context context, FragmentManager fragmentManager) {
+        mContext = context;
         mGravity = Gravity.END;
+        mPagerAdapter = new HomePagerAdapter(fragmentManager);
     }
 
     @Override
@@ -82,5 +86,15 @@ public class HomeViewModel extends BaseObservable
                 break;
         }
         return true;
+    }
+
+    @Bindable
+    public HomePagerAdapter getPagerAdapter() {
+        return mPagerAdapter;
+    }
+
+    public void setPagerAdapter(HomePagerAdapter pagerAdapter) {
+        mPagerAdapter = pagerAdapter;
+        notifyPropertyChanged(BR.pagerAdapter);
     }
 }
