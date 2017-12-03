@@ -3,38 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_container"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/nav_header_height"
+    android:layout_height="@dimen/image_poster_height"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    >
 
     <ImageView
         android:id="@+id/image_header_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/nav_menu_header" />
+        android:src="@drawable/nav_menu_header"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
-
+        android:padding="@dimen/activity_horizontal_margin"
+        >
 
         <TextView
-            android:text="@string/title_nav_header_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            style="?android:attr/textAppearanceLarge" />
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="@string/title_nav_header_name"
+            style="?android:attr/textAppearanceLarge"
+            />
 
         <TextView
-            android:text="@string/title_nav_header_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?android:attr/textAppearance"/>
+            android:text="@string/title_nav_header_email"
+            style="?android:attr/textAppearance"
+            />
 
     </LinearLayout>
 </RelativeLayout>
